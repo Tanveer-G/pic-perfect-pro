@@ -13,7 +13,9 @@ export default function Optimizer() {
     <main className="flex flex-col lg:flex-row container mx-auto">
       <section className="flex flex-1 justify-center items-center">
         <div className="shadow-[0_1px_4px_#b7b0b0] min-w-[308px] min-h-[365px] rounded-sm relative overflow-hidden">
-          <div className="left-[8px] top-[8px] absolute">
+          <div
+            className={`${selectTab === "Resize" ? "absolute" : ""} left-[8px] top-[8px]`}
+          >
             {selectTab === "Resize" ? (
               <ResizableDiv>
                 <Image
@@ -39,7 +41,8 @@ export default function Optimizer() {
                 style={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover",
+                  objectFit: "contain",
+                  scale: 0.9999,
                   ...styles,
                 }}
               />
