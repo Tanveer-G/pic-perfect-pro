@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.resizable {
+  background: transparent;
+  width: 292px;
+  height: 348px;
+  position: absolute;
+  top: auto;
+  left: auto;
+}
+
+.resizable .resizers {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #4fa83d;
+  box-sizing: border-box;
+  aspect-ratio: 0.84 / 1;
+}
+
+.resizable .resizers .resizer {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: 3px solid #4fa83d;
+  position: absolute;
+}
+
+.resizable .resizers .resizer.top-left {
+  left: -8px;
+  top: -8px;
+  cursor: nwse-resize; /*resizer cursor*/
+}
+.resizable .resizers .resizer.top-right {
+  right: -8px;
+  top: -8px;
+  cursor: nesw-resize;
+}
+.resizable .resizers .resizer.bottom-left {
+  left: -8px;
+  bottom: -8px;
+  cursor: nesw-resize;
+}
+.resizable .resizers .resizer.bottom-right {
+  right: -8px;
+  bottom: -8px;
+  cursor: nwse-resize;
+}
+
+.resizable .innerContent {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.resizable-image {
+  transition: filter 0.3s ease; /* Optional: Add transition for smoother filter changes */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
