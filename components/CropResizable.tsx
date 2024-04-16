@@ -1,12 +1,11 @@
-"use client";
 import React, { useRef, useEffect } from "react";
 import { useGlobalContext } from "@/context/store"; // Import useGlobalContext hook from your store
 
-interface ResizableDivProps {
+interface CropResizableProps {
   children?: React.ReactNode; // Make children optional
 }
 
-const ResizableDiv: React.FC<ResizableDivProps> = ({ children }) => {
+const CropResizable: React.FC<CropResizableProps> = ({ children }) => {
   const resizableRef = useRef<HTMLDivElement>(null);
   const { dimensions, setDimensions } = useGlobalContext(); // Access global dimensions state and setter
 
@@ -112,13 +111,15 @@ const ResizableDiv: React.FC<ResizableDivProps> = ({ children }) => {
         top: `${dimensions.top}px`,
         left: `${dimensions.left}px`,
         position: "absolute",
-        border: "1px solid #4fa83d", // Optional border style
+        overflow: "hidden",
+        border: "1px solid #4fa83d",
+        boxSizing: "content-box",
       }}
     >
       <div className="resizers">
         <div
           role="button"
-          className="resizer top-left"
+          className="resizer top-left crop-corner"
           onMouseDown={(e) => onStartResize(e.clientX, e.clientY, "top-left")}
           onTouchStart={(e) =>
             onStartResize(
@@ -130,7 +131,7 @@ const ResizableDiv: React.FC<ResizableDivProps> = ({ children }) => {
         />
         <div
           role="button"
-          className="resizer top-right z-50"
+          className="resizer top-right crop-corner"
           onMouseDown={(e) => onStartResize(e.clientX, e.clientY, "top-right")}
           onTouchStart={(e) =>
             onStartResize(
@@ -142,7 +143,7 @@ const ResizableDiv: React.FC<ResizableDivProps> = ({ children }) => {
         />
         <div
           role="button"
-          className="resizer bottom-left"
+          className="resizer bottom-left crop-corner"
           onMouseDown={(e) =>
             onStartResize(e.clientX, e.clientY, "bottom-left")
           }
@@ -156,7 +157,7 @@ const ResizableDiv: React.FC<ResizableDivProps> = ({ children }) => {
         />
         <div
           role="button"
-          className="resizer bottom-right"
+          className="resizer bottom-right crop-corner"
           onMouseDown={(e) =>
             onStartResize(e.clientX, e.clientY, "bottom-right")
           }
@@ -176,4 +177,4 @@ const ResizableDiv: React.FC<ResizableDivProps> = ({ children }) => {
   );
 };
 
-export default ResizableDiv;
+export default CropResizable;

@@ -31,6 +31,7 @@ body {
     text-wrap: balance;
   }
 }
+
 .resizable {
   background: transparent;
   width: 292px;
@@ -97,4 +98,10 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.resizable .resizers .crop-corner {
+  z-index: 1;
+  width: 18px;
+  height: 18px;
 }
