@@ -33,12 +33,12 @@ export default function Input({
         {label}
       </label>
 
-      <div className="relative mb-6 flex justify-between max-h-10">
+      <div className="relative mb-6 flex justify-between max-h-[50px] rounded-[6.95598px] h-[50px] border-[#606060] border-[0.632362px] bg-[#202224]">
         <input
           type={type}
           step={step}
           id="input-filed"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-2.5  dark:bg-[#4fa83d]/10 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="block w-full px-2.5 py-2.5 h-full bg-[#202224] rounded-[6.95598px] text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500   dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder={placeholder}
           onChange={handleValueChange}
           value={value}
